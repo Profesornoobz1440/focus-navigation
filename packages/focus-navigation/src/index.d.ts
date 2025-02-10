@@ -39,33 +39,32 @@ declare namespace FocusNavigation {
     };
 
     // FocusNavigationService types
-    export type FocusNavigationService = {
-        registerEventMap(guiObject: GuiObject, eventMap: EventMap): void;
-        deregisterEventMap(guiObject: GuiObject, eventMap: EventMap): void;
-        registerEventHandlers(guiObject: GuiObject, eventHandlerMap: _EventHandlerMap): void;
-        deregisterEventHandlers(guiObject: GuiObject, eventHandlerMap: _EventHandlerMap): void;
-        registerEventHandler(guiObject: GuiObject, eventName: string, eventHandler: _EventHandler, phase?: EventPhase): void;
-        deregisterEventHandler(guiObject: GuiObject, eventName: string, eventHandler: _EventHandler, phase?: EventPhase): void;
-        registerFocusBehavior(guiObject: GuiObject, containerFocusBehavior: ContainerFocusBehavior): void;
-        deregisterFocusBehavior(guiObject: GuiObject, containerFocusBehavior: ContainerFocusBehavior): void;
-        focusGuiObject(guiObject: GuiObject | undefined, flag: boolean): void;
-        teardown(): void;
+    export class FocusNavigationService {
+        constructor(engineInterface: EngineInterface)
+
+        public registerEventMap(guiObject: GuiObject, eventMap: EventMap): void;
+        public deregisterEventMap(guiObject: GuiObject, eventMap: EventMap): void;
+        public registerEventHandlers(guiObject: GuiObject, eventHandlerMap: _EventHandlerMap): void;
+        public deregisterEventHandlers(guiObject: GuiObject, eventHandlerMap: _EventHandlerMap): void;
+        public registerEventHandler(guiObject: GuiObject, eventName: string, eventHandler: _EventHandler, phase?: EventPhase): void;
+        public deregisterEventHandler(guiObject: GuiObject, eventName: string, eventHandler: _EventHandler, phase?: EventPhase): void;
+        public registerFocusBehavior(guiObject: GuiObject, containerFocusBehavior: ContainerFocusBehavior): void;
+        public deregisterFocusBehavior(guiObject: GuiObject, containerFocusBehavior: ContainerFocusBehavior): void;
+        public focusGuiObject(guiObject: GuiObject | undefined, flag: boolean): void;
+        public teardown(): void;
     
-        activeEventMap: Signal<EventMap>;
-        focusedGuiObject: Signal<GuiObject | undefined>;
-    };
+        public activeEventMap: Signal<EventMap>;
+        public focusedGuiObject: Signal<GuiObject | undefined>;
+    }
+
+    export function isValidFocusTarget(maybeInstance?: Instance): LuaTuple<[true]> | LuaTuple<[false, string]>;
+    export namespace EngineInterface {
+        export const PlayerGui: EngineInterface;
+    }
 
     export type Event = _Event<EventMap>
     export type EventHandler = _EventHandler<EventData>
     export type EventHandlerMap = _EventHandlerMap<EventData>
-}
-
-declare namespace FocusNavigation {
-    export function isValidFocusTarget(maybeInstance?: Instance): LuaTuple<[true]> | LuaTuple<[false, string]>;
-    export const FocusNavigationService: FocusNavigationService;
-    export namespace EngineInterface {
-        export const PlayerGui: EngineInterface;
-    }
 }
 
 export = FocusNavigation
