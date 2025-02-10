@@ -1,0 +1,19 @@
+{
+	"name": "@profesornoobz1440x/focus-navigation",
+	"version": "1.0.0",
+	"description": "The FocusNavigation package contains UI-library-agnostic behavior intended to drive focus navigation in a generic way.",
+	"repository": "profesornoobz1440/focus-navigation",
+	"license": "MIT",
+	"main": "src/init.luau",
+	"types": "src/index.d.ts",
+	"devDependencies": {
+		"@rbxts/compiler-types": "3.0.0-types.0",
+		"@rbxts/types": "github:Profesornoobz1440/rbxts-types",
+		"roblox-ts": "^3.0.0",
+		"typescript": "^5.7.3"
+	},
+	"dependencies": {
+		"@profesornoobz1440x/event-propagation": "workspace:^",
+		"@profesornoobz1440x/focus-navigation-utils": "workspace:^"
+	}
+}

@@ -1,0 +1,18 @@
+{
+	"name": "@profesornoobz1440x/focus-behaviors",
+	"version": "1.0.0",
+	"description": "Defines focus management behaviors that can be attached to containers via the FocusNavigationService. Containers will typically be pages or modals, and focus behaviors will trigger whenever the container gains focus (in other words: when focus moves from outside the container's hierarchy to inside the container's hierarchy).",
+	"repository": "profesornoobz1440/focus-navigation",
+	"license": "MIT",
+	"main": "src/init.luau",
+	"types": "src/index.d.ts",
+	"devDependencies": {
+		"@rbxts/compiler-types": "3.0.0-types.0",
+		"@rbxts/types": "github:Profesornoobz1440/rbxts-types",
+		"roblox-ts": "^3.0.0",
+		"typescript": "^5.7.3"
+	},
+	"dependencies": {
+		"@profesornoobz1440x/focus-navigation": "workspace:^"
+	}
+}

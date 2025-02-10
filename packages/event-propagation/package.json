@@ -1,0 +1,15 @@
+{
+	"name": "@profesornoobz1440x/event-propagation",
+	"version": "1.0.0",
+	"description": "The EventPropagation package is responsible for functionality related to propagating events registered and triggered by consumers. It is a foundational component of the FocusNavigation library.",
+	"repository": "profesornoobz1440/focus-navigation",
+	"license": "MIT",
+	"main": "src/init.luau",
+	"types": "src/index.d.ts",
+	"devDependencies": {
+		"@rbxts/compiler-types": "3.0.0-types.0",
+		"@rbxts/types": "github:Profesornoobz1440/rbxts-types",
+		"roblox-ts": "^3.0.0",
+		"typescript": "^5.7.3"
+	}
+}
