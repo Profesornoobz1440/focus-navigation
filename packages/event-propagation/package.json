@@ -6,6 +6,9 @@
 	"license": "MIT",
 	"main": "src/init.luau",
 	"types": "src/index.d.ts",
+	"scripts": {
+		"prepare": "cp ../../LICENSE.md ."
+	},
 	"devDependencies": {
 		"@rbxts/compiler-types": "3.0.0-types.0",
 		"@rbxts/types": "github:Profesornoobz1440/rbxts-types",
