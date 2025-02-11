@@ -21,30 +21,30 @@ declare namespace EventPropagation {
 	}
 
 	export type BoundEventHandlers = Record<string, boolean>;
+}
 
-	export class EventPropagationService<T = unknown> {
-		public registerEventHandler(
-			instance: Instance,
-			eventName: string,
-			eventHandler: EventHandler<T>,
-			phase?: EventPhase
-		): void;
-		public registerEventHandlers(instance: Instance, map: EventHandlerMap<T>): void
-		public deregisterEventHandlers(instance: Instance, map: EventHandlerMap<T>): void
-		public deregisterEventHandler(
-			instance: Instance,
-			eventName: string,
-			handler: EventHandler<T>,
-			phase?: EventPhase
-		): void;
-		public getRegisteredEventHandlers(instance: Instance): BoundEventHandlers | undefined;
-		public 	propagateEvent(
-			instance: Instance,
-			eventName: string,
-			eventData: T,
-			silent?: boolean
-		): void;
-	}
+declare class EventPropagation<T = unknown> {
+	public registerEventHandler(
+		instance: Instance,
+		eventName: string,
+		eventHandler: EventPropagation.EventHandler<T>,
+		phase?: EventPropagation.EventPhase
+	): void;
+	public registerEventHandlers(instance: Instance, map: EventPropagation.EventHandlerMap<T>): void
+	public deregisterEventHandlers(instance: Instance, map: EventPropagation.EventHandlerMap<T>): void
+	public deregisterEventHandler(
+		instance: Instance,
+		eventName: string,
+		handler: EventPropagation.EventHandler<T>,
+		phase?: EventPropagation.EventPhase
+	): void;
+	public getRegisteredEventHandlers(instance: Instance): EventPropagation.BoundEventHandlers | undefined;
+	public 	propagateEvent(
+		instance: Instance,
+		eventName: string,
+		eventData: T,
+		silent?: boolean
+	): void;
 }
 
 export = EventPropagation;
