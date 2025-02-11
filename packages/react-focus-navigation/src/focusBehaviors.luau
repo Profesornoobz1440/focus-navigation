@@ -5,7 +5,7 @@ if (rbxtsModules) then
     if (profesornoobz1440xModules) then
         local focusNavigation = profesornoobz1440xModules:FindFirstChild("focus-behaviors")
         if (focusNavigation) then
-            return require(focusNavigation:FindFirstChild("src")) :: any
+            return require(focusNavigation) :: any
         end
     end
 end

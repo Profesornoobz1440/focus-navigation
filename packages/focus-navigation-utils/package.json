@@ -1,6 +1,6 @@
 {
 	"name": "@profesornoobz1440x/focus-navigation-utils",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Some small generic utilities used by the FocusNavigationService workspace, set aside so that they can be more easily extracted later if desired",
 	"repository": "profesornoobz1440x/focus-navigation",
 	"license": "MIT",

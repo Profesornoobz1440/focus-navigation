@@ -1,6 +1,6 @@
 {
 	"name": "@profesornoobz1440x/focus-navigation",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "The FocusNavigation package contains UI-library-agnostic behavior intended to drive focus navigation in a generic way.",
 	"repository": "profesornoobz1440/focus-navigation",
 	"license": "MIT",
