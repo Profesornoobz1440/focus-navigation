@@ -1,14 +1,2 @@
---!strict
-local rbxtsModules = script:FindFirstAncestor("@rbxts");
-if (rbxtsModules) then
-    local profesornoobz1440xModules = (rbxtsModules.Parent :: Instance):FindFirstChild("@profesornoobz1440x")
-    if (profesornoobz1440xModules) then
-        local focusNavigation = profesornoobz1440xModules:FindFirstChild("focus-navigation")
-        if (focusNavigation) then
-            return require(focusNavigation) :: any
-        end
-    end
-end
-
-error(`Couldnt find "FocusNavigation" package`)
-return nil
+--!nocheck
+return require(script:FindFirstAncestor("node_modules"):WaitForChild("@profesornoobz1440x"):WaitForChild("focus-navigation"))

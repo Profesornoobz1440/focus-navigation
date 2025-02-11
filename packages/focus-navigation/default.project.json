@@ -1,6 +1,6 @@
 {
     "name": "focus-navigation",
     "tree": {
-        "$path": "src"
+        "$path": "out"
     }
 }

@@ -1,6 +1,6 @@
 {
     "name": "focus-behaviors",
     "tree": {
-        "$path": "src"
+        "$path": "out"
     }
 }

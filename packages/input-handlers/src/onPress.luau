@@ -1,5 +1,5 @@
 --!strict
-local FocusNavigation = require("./getFocusNavigation") :: any
+local FocusNavigation = require("./focusNavigation") :: any
 
 local handleInput = require("./handleInput")
 

@@ -1,6 +1,6 @@
 {
     "name": "react-focus-navigation",
     "tree": {
-        "$path": "src"
+        "$path": "out"
     }
 }

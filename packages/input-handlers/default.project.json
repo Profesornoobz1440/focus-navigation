@@ -1,6 +1,6 @@
 {
     "name": "input-handlers",
     "tree": {
-        "$path": "src"
+        "$path": "out"
     }
 }
