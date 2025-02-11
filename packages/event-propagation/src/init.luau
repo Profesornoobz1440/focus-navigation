@@ -9,6 +9,4 @@ export type EventHandler<T> = EventPropagationService.EventHandler<T>
 export type EventHandlerMap<T> = EventPropagationService.EventHandlerMap<T>
 export type EventPropagationService<T> = EventPropagationService.EventPropagationService<T>
 
-return {
-    EventPropagationService = EventPropagationService;
-}
+return EventPropagationService;
