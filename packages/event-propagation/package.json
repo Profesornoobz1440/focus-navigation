@@ -1,6 +1,6 @@
 {
 	"name": "@profesornoobz1440x/event-propagation",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "The EventPropagation package is responsible for functionality related to propagating events registered and triggered by consumers. It is a foundational component of the FocusNavigation library.",
 	"repository": "profesornoobz1440/focus-navigation",
 	"license": "MIT",
