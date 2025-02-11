@@ -1,6 +1,6 @@
 {
 	"name": "@profesornoobz1440x/input-handlers",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "Input handling utility functions that aid in authoring event handlers.",
 	"repository": "profesornoobz1440/focus-navigation",
 	"license": "MIT",
