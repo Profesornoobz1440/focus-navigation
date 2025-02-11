@@ -1,10 +1,9 @@
 --!strict
-local Packages = script.Parent.Parent
-local Utils = require(Packages.FocusNavigationUtils)
+local Utils = require(script.Parent:WaitForChild('focusNavigationUtils'))
 local getAncestors = Utils.getAncestors
 local warn = Utils.mockableWarn
 
-local eventPropagationEvent = require(script.Parent.eventPropagationEvent)
+local eventPropagationEvent = require(script.Parent:WaitForChild('eventPropagationEvent'))
 local Event = eventPropagationEvent
 type EventPhase = eventPropagationEvent.EventPhase
 type Event<T> = eventPropagationEvent.Event<T>
