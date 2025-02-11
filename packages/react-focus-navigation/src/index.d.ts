@@ -33,7 +33,7 @@ declare namespace ReactFocusNavigation {
     export function useContainerFocusBehavior<InnerRef extends GuiObject>(behavior: ContainerFocusBehavior, innerRef?: Ref<InnerRef>): Ref<InnerRef>
     export function useEventHandler<InnerRef extends GuiObject>(eventName: string, handler: EventHandler, phase?: EventPhase, innerRef?: Ref<InnerRef>): Ref<InnerRef>
     export function useEventHandlerMap<InnerRef extends GuiObject>(handlerMap: EventHandlerMap, innerRef?: Ref<InnerRef>): Ref<InnerRef>
-    export function useEventMa<InnerRef extends GuiObject>(eventMap: EventMap, innerRef?: Ref<InnerRef>): Ref<InnerRef>
+    export function useEventMap<InnerRef extends GuiObject>(eventMap: EventMap, innerRef?: Ref<InnerRef>): Ref<InnerRef>
     export function useFocusedGuiObject(): GuiObject
     export function useFocusGuiObject(): (target?: GuiObject, silent?: boolean) => void;
 
