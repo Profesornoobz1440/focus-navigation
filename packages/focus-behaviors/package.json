@@ -4,9 +4,10 @@
 	"description": "Defines focus management behaviors that can be attached to containers via the FocusNavigationService. Containers will typically be pages or modals, and focus behaviors will trigger whenever the container gains focus (in other words: when focus moves from outside the container's hierarchy to inside the container's hierarchy).",
 	"repository": "profesornoobz1440/focus-navigation",
 	"license": "MIT",
-	"main": "src/init.luau",
-	"types": "src/index.d.ts",
+	"main": "out/init.luau",
+	"types": "out/index.d.ts",
 	"scripts": {
+		"prepublishOnly": "pnpm run rbxtsc && darklua process out out",
 		"prepare": "cp ../../LICENSE.md ."
 	},
 	"devDependencies": {

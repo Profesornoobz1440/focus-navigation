@@ -4,9 +4,10 @@
 	"description": "The EventPropagation package is responsible for functionality related to propagating events registered and triggered by consumers. It is a foundational component of the FocusNavigation library.",
 	"repository": "profesornoobz1440/focus-navigation",
 	"license": "MIT",
-	"main": "src/init.luau",
-	"types": "src/index.d.ts",
+	"main": "out/init.luau",
+	"types": "out/index.d.ts",
 	"scripts": {
+		"prepublishOnly": "pnpm run rbxtsc && darklua process out out",
 		"prepare": "cp ../../LICENSE.md ."
 	},
 	"devDependencies": {

@@ -4,9 +4,10 @@
 	"description": "A library for handling directional input, like a gamepad or keyboard, and managing \"focus\" (ie. selection) in React applications.",
 	"repository": "profesornoobz1440/focus-navigation",
 	"license": "MIT",
-	"main": "src/init.luau",
-	"types": "src/index.d.ts",
+	"main": "out/init.luau",
+	"types": "out/index.d.ts",
 	"scripts": {
+		"prepublishOnly": "pnpm run rbxtsc && darklua process out out",
 		"prepare": "cp ../../LICENSE.md ."
 	},
 	"devDependencies": {
