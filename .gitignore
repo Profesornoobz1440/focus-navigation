@@ -1,3 +1,4 @@
 /package-lock.yaml
 /node_modules
 /packages/**/node_modules
+/packages/**/out

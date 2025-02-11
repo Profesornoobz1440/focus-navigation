@@ -30,16 +30,16 @@ declare namespace ReactFocusNavigation {
 
     export function useActiveEventMap(): EventMap;
 
-    export function useContainerFocusBehavior(behavior: ContainerFocusBehavior, innerRef?: Ref<Instance>): Ref<Instance>
-    export function useEventHandler(eventName: string, handler: EventHandler, phase?: EventPhase, innerRef?: Ref<Instance>): Ref<Instance>
-    export function useEventHandlerMap(handlerMap: EventHandlerMap, innerRef?: Ref<Instance>): Ref<Instance>
-    export function useEventMap(eventMap: EventMap, innerRef?: Ref<Instance>): Ref<Instance>
+    export function useContainerFocusBehavior<InnerRef extends GuiObject>(behavior: ContainerFocusBehavior, innerRef?: Ref<InnerRef>): Ref<InnerRef>
+    export function useEventHandler<InnerRef extends GuiObject>(eventName: string, handler: EventHandler, phase?: EventPhase, innerRef?: Ref<InnerRef>): Ref<InnerRef>
+    export function useEventHandlerMap<InnerRef extends GuiObject>(handlerMap: EventHandlerMap, innerRef?: Ref<InnerRef>): Ref<InnerRef>
+    export function useEventMa<InnerRef extends GuiObject>(eventMap: EventMap, innerRef?: Ref<InnerRef>): Ref<InnerRef>
     export function useFocusedGuiObject(): GuiObject
     export function useFocusGuiObject(): (target?: GuiObject, silent?: boolean) => void;
 
-    export function useDefaultFocusBehavior(innerContanerRef?: Ref<Instance>): LuaTuple<[Ref<Instance>, Ref<Instance>]>
-    export function useMostRecentFocusBehavior(innerContainerRef?: Ref<Instance>): Ref<Instance>
-    export function useMostRecentOrDefaultFocusBehavior(innerContanerRef?: Ref<Instance>): LuaTuple<[Ref<Instance>, Ref<Instance>]>
+    export function useDefaultFocusBehavior<DefaultRef extends GuiObject, InnerContainerRef extends GuiObject>(innerContanerRef?: Ref<InnerContainerRef>): LuaTuple<[Ref<DefaultRef>, Ref<InnerContainerRef>]>
+    export function useMostRecentFocusBehavior<InnerContainerRef extends GuiObject>(innerContainerRef?: Ref<InnerContainerRef>): Ref<InnerContainerRef>
+    export function useMostRecentOrDefaultFocusBehavior<DefaultRef extends GuiObject, InnerContainerRef extends GuiObject>(innerContanerRef?: Ref<InnerContainerRef>): LuaTuple<[Ref<DefaultRef>, Ref<InnerContainerRef>]>
 }
 
 export = ReactFocusNavigation;
