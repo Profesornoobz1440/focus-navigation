@@ -15,5 +15,8 @@
 		"@rbxts/types": "github:Profesornoobz1440/rbxts-types",
 		"roblox-ts": "^3.0.0",
 		"typescript": "^5.7.3"
+	},
+	"dependencies": {
+		"@profesornoobz1440x/focus-navigation-utils": "workspace:^"
 	}
 }

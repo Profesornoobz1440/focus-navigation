@@ -1,20 +1,20 @@
+--!strict
+local FocusNavigation = require(script.Parent:WaitForChild('focusNavigation')):: any
 
-local a=require"./focusNavigation"::any
-
-local b=require"./handleInput";
+local handleInput = require(script.Parent:WaitForChild('handleInput'));
 
 local function onLongPress(
-c:number,
-d:b.Callback,
-e:b.StepCallback?
-):a.EventHandler
-return b{
-hold={
-durationSeconds=c,
-onComplete=d,
-onStep=e,
-},
-}
+	durationSeconds: number,
+	onHoldForDuration: handleInput.Callback,
+	onHoldStep: handleInput.StepCallback?
+): FocusNavigation.EventHandler
+	return handleInput({
+		hold = {
+			durationSeconds = durationSeconds,
+			onComplete = onHoldForDuration,
+			onStep = onHoldStep,
+		},
+	})
 end
 
 return onLongPress

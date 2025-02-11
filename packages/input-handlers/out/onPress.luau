@@ -1,12 +1,12 @@
+--!strict
+local FocusNavigation = require(script.Parent:WaitForChild('focusNavigation')):: any
 
-local a=require"./focusNavigation"::any
+local handleInput = require(script.Parent:WaitForChild('handleInput'))
 
-local b=require"./handleInput"
-
-local function onPress(c:a.EventHandler):a.EventHandler
-return b{
-onPress=c,
-}
+local function onPress(callback: FocusNavigation.EventHandler): FocusNavigation.EventHandler
+	return handleInput({
+		onPress = callback,
+	})
 end
 
 return onPress

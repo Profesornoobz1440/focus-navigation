@@ -1,107 +1,107 @@
+--!strict
+local FocusNavigation = require(script.Parent:WaitForChild('focusNavigation')):: any
 
-local a=require"./focusNavigation"::any
+local Heartbeat = require(script.Parent:WaitForChild('Heartbeat'));
 
-local b=require"./Heartbeat";
+export type Callback = () -> ()
+export type StepCallback = (number) -> ()
 
-export type Callback=()->()
-export type StepCallback=(number)->()
+type Config = {
+	onPress: FocusNavigation.EventHandler?,
+	onRelease: FocusNavigation.EventHandler?,
 
-type Config={
-onPress:a.EventHandler?,
-onRelease:a.EventHandler?,
-
-hold:{
-durationSeconds:number,
-onComplete:Callback,
-onStep:StepCallback?,
-allowReleaseAfterHold:boolean?
+	hold: {
+		durationSeconds: number,
+		onComplete: Callback,
+		onStep: StepCallback?,
+		allowReleaseAfterHold: boolean?	
 }?
 }
 
-
-type CancellableDelay={
-cancel:()->()
+-- TODO: Replace this with standard task.cancel when fake timers support it
+type CancellableDelay = {
+	cancel: () -> ()
 }
-local function cancellableDelay(c,d)
-local e=false
-task.delay(c,function()
-if not e then
-d()
-end
-end)
-return{
-cancel=function()
-e=true
-end,
-}
-end
-
-local function handleInput(c:Config):a.EventHandler
-local d=c.hold
-local e:CancellableDelay?
-local f:RBXScriptConnection?
-
-local g=false
-
-local function clearHeldState()
-if e then
-e.cancel()
-e=nil
-end
-if f then
-f:Disconnect()
-f=nil
-end
-g=false
+local function cancellableDelay(duration, callback)
+	local isCancelled = false
+	task.delay(duration, function()
+		if not isCancelled then
+			callback()
+		end
+	end)
+	return {
+		cancel = function()
+			isCancelled = true
+		end,
+	}
 end
 
-return function(h)
-local i=if h.eventData then h.eventData.UserInputState else nil
+local function handleInput(config: Config): FocusNavigation.EventHandler
+	local hold = config.hold
+	local holdCompleteTask: CancellableDelay? 	
+local holdStepConnection: RBXScriptConnection? 
+	
+local receivedPress = false
 
-if i==Enum.UserInputState.Begin then
+	local function clearHeldState()
+		if holdCompleteTask then
+			holdCompleteTask.cancel()
+			holdCompleteTask = nil
+		end
+		if holdStepConnection then
+			holdStepConnection:Disconnect()
+			holdStepConnection = nil
+		end
+		receivedPress = false
+	end
 
-if c.onPress then
-c.onPress(h)
-end
+	return function(event)
+		local inputState = if event.eventData then event.eventData.UserInputState else nil
 
+		if inputState == Enum.UserInputState.Begin then
+			-- press
+			if config.onPress then
+				config.onPress(event)
+			end
 
-clearHeldState()
+			-- hold
+			clearHeldState()
 
-if d then
-e=cancellableDelay(d.durationSeconds,function()
+			if hold then
+				holdCompleteTask = cancellableDelay(hold.durationSeconds, function()
+					-- if the hold was completed, we can flip `receivedPress` to
+					-- false to effectively cancel the onRelease
+					if not hold.allowReleaseAfterHold then
+						receivedPress = false
+					end
+					hold.onComplete()
+					if holdStepConnection then
+						holdStepConnection:Disconnect()
+						holdStepConnection = nil
+					end
+				end)
+				holdStepConnection = if hold.onStep then Heartbeat:Connect(hold.onStep) else nil
+			end
 
+			-- release
+			receivedPress = true
+		end
 
-if not d.allowReleaseAfterHold then
-g=false
-end
-d.onComplete()
-if f then
-f:Disconnect()
-f=nil
-end
-end)
-f=if d.onStep then b:Connect(d.onStep)else nil
-end
+		if inputState == Enum.UserInputState.End then
+			-- release
+			if config.onRelease and receivedPress then
+				config.onRelease(event)
+			end
 
+			-- hold + release
+			clearHeldState()
+		end
 
-g=true
-end
-
-if i==Enum.UserInputState.End then
-
-if c.onRelease and g then
-c.onRelease(h)
-end
-
-
-clearHeldState()
-end
-
-if i==Enum.UserInputState.Cancel then
-
-clearHeldState()
-end
-end
+		if inputState == Enum.UserInputState.Cancel then
+			-- hold + release
+			clearHeldState()
+		end
+	end
 end
 
 return handleInput

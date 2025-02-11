@@ -19,6 +19,10 @@ importers:
         version: 3.0.0
 
   packages/event-propagation:
+    dependencies:
+      '@profesornoobz1440x/focus-navigation-utils':
+        specifier: workspace:^
+        version: link:../focus-navigation-utils
     devDependencies:
       '@rbxts/compiler-types':
         specifier: 3.0.0-types.0

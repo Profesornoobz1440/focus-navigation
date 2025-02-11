@@ -1,12 +1,12 @@
+--!strict
+local FocusNavigation = require(script.Parent:WaitForChild('focusNavigation')):: any
 
-local a=require"./focusNavigation"::any
+local handleInput = require(script.Parent:WaitForChild('handleInput'))
 
-local b=require"./handleInput"
-
-local function onRelease(c:a.EventHandler):a.EventHandler
-return b{
-onRelease=c,
-}
+local function onRelease(callback: FocusNavigation.EventHandler): FocusNavigation.EventHandler
+	return handleInput({
+		onRelease = callback,
+	})
 end
 
 return onRelease
