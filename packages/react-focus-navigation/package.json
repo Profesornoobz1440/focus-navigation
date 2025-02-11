@@ -1,6 +1,6 @@
 {
 	"name": "@profesornoobz1440x/react-focus-navigation",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "A library for handling directional input, like a gamepad or keyboard, and managing \"focus\" (ie. selection) in React applications.",
 	"repository": "profesornoobz1440/focus-navigation",
 	"license": "MIT",
