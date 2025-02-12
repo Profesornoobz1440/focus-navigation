@@ -1,6 +1,6 @@
 --!strict
-local Event = require(script.eventPropagationEvent)
-local EventPropagationService = require(script.eventPropagationService)
+local Event = require("./eventPropagationEvent")
+local EventPropagationService = require("./eventPropagationService")
 
 export type EventPhase = Event.EventPhase
 export type Event<T> = Event.Event<T>
