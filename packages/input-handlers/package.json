@@ -1,11 +1,17 @@
 {
 	"name": "@profesornoobz1440x/input-handlers",
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"description": "Input handling utility functions that aid in authoring event handlers.",
 	"repository": "profesornoobz1440/focus-navigation",
 	"license": "MIT",
 	"main": "out/init.luau",
 	"types": "out/index.d.ts",
+	"files": [
+        "out",
+		"default.project.json",
+		"LICENSE.md",
+		"README.md"
+    ],
 	"scripts": {
 		"prepublishOnly": "rbxtsc && darklua process out out",
 		"prepare": "cp ../../LICENSE.md ."
