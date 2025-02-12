@@ -16,4 +16,6 @@ node-linker=hoisted
 
 ## 📚 Resources
 
-- [FocusNavigation Documentation](https://roblox.github.io/focus-navigation-internal/)
+ - [NPM Package](https://www.npmjs.com/package/@profesornoobz1440x/react-focus-navigation)
+ - [Github Repository](https://github.com/Profesornoobz1440/focus-navigation)
+ - [FocusNavigation Documentation](https://roblox.github.io/focus-navigation-internal/)
